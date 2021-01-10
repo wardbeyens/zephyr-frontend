@@ -1,22 +1,9 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { Container, Row, Col } from "react-bootstrap";
+import { connect } from "react-redux";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 class Shop extends Component {
-  state = {
-    clothes: [],
-  };
-
-  componentDidMount() {
-    let url = "https://zephyr.wabyte.com/clothes/";
-
-    var promise = axios.get(url);
-    promise
-      .then((resp) => {
-        this.setState({ clothes: resp.data });
-      })
-      .catch(console.log);
-  }
+  componentDidMount() {}
 
   render() {
     return (
@@ -27,7 +14,7 @@ class Shop extends Component {
           </center>
         </div>
         <Row>
-          {this.state.clothes.map((clothing, i) => (
+          {this.props.clothes.map((clothing, i) => (
             <Col>
               <div key={i} className="card">
                 <div className="card-body">
@@ -41,6 +28,7 @@ class Shop extends Component {
                   <p className="card-text">{clothing.type}</p>
                   <p className="card-text">{clothing.price}</p>
                 </div>
+                {<Button>ADD</Button>}
               </div>
             </Col>
           ))}
@@ -50,4 +38,22 @@ class Shop extends Component {
   }
 }
 
-export default Shop;
+const mapStateToProps = (state) => {
+  // mapStateToProps: mapping of the props with the state
+  return {
+    user: state.user,
+    clothes: state.clothes,
+    orders: state.orders,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  // mapDispatchToProps: mapping of the eventhandlers with dispatch
+  return {
+    // onLoadRobots: () => dispatch(loadRobots()),
+    // onLoadCategories: () => dispatch(loadCategories()),
+    // onLoadManufacturers: () => dispatch(loadManufacturers()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Shop);
