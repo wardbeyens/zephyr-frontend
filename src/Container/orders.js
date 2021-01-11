@@ -82,7 +82,7 @@ class Orders extends Component {
   };
 
   onDelete = (order) => {
-    return myApi.deleteOrder(order).then(
+    return myApi.deleteOrder(order.uuid).then(
       (result) => {
         this.load();
       },
@@ -96,7 +96,9 @@ class Orders extends Component {
     return (
       <div>
         <Index
-          data={this.state.orders}
+          orders={this.state.orders}
+          users={this.state.users}
+          clothes={this.state.clothes}
           onCreate={this.onCreate}
           onEdit={this.onEdit}
           onUpdate={this.onUpdate}

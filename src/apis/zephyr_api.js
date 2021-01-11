@@ -3,6 +3,10 @@ import axios from "axios";
 const BaseUrl = "https://zephyr.wabyte.com";
 
 class MyApi {
+  static getAllOrders() {
+    return axios.get(BaseUrl + "/orders");
+  }
+
   static getAllClothes() {
     return axios.get(BaseUrl + "/clothes");
   }
@@ -79,9 +83,9 @@ class MyApi {
   //     return axios.post(BaseUrl + "/order/" + id + "/paid");
   //   }
 
-  //   static deleteOrder(id) {
-  //     return axios.delete(BaseUrl + "/order/" + id);
-  //   }
+  static deleteOrder(id) {
+    return axios.delete(BaseUrl + "/order/" + id);
+  }
 
   //   static createCategory(category) {
   //     return axios.post(BaseUrl + "/categories", category);
