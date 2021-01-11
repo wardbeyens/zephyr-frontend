@@ -1,5 +1,3 @@
-// src/App.js
-
 import React, { Component } from "react";
 import {
   Switch,
@@ -15,6 +13,9 @@ import Basket from "./Container/basket";
 import { Navbar, Nav } from "react-bootstrap";
 import Login from "./Container/login";
 import SignUp from "./Container/signup";
+import Users from "./Container/users";
+import Clothes from "./Container/clothes";
+import Orders from "./Container/orders";
 
 import store from "./store";
 
@@ -41,6 +42,10 @@ const Main = () => (
       <Route exact path="/" component={Shop} />
       <Route path="/basket" component={Basket} />
       <Route path="/login" component={Login} />
+      <Route path="/admin/users" component={Users} />
+      <Route path="/admin/clothes" component={Clothes} />
+      <Route path="/admin/orders" component={Orders} />
+
       {/* <Route path="/signup" component={SignUp} /> */}
     </Switch>
   </div>

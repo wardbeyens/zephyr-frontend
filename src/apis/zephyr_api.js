@@ -11,6 +11,14 @@ class MyApi {
   //     return axios.get(BaseUrl + "/clothes/" + id);
   //   }
 
+  static createUser(user) {
+    return axios.post(BaseUrl + "/user", user);
+  }
+
+  static getAllUsers() {
+    return axios.get(BaseUrl + "/users");
+  }
+
   static getUserByuserName(userName) {
     return axios.get(BaseUrl + "/user/search?userName=" + userName);
   }
@@ -19,8 +27,28 @@ class MyApi {
   //     return axios.get(BaseUrl + "/user/search?uuid=" + id);
   //   }
 
-  //   static createUser(user) {
-  //     return axios.post(BaseUrl + "/user", user);
+  static updateUser(user) {
+    let newUser = {};
+    newUser.userName = user.userName;
+    newUser.firstName = user.firstName;
+    newUser.lastName = user.lastName;
+    newUser.email = user.email;
+    newUser.password = user.password;
+    newUser.streetName = user.streetName;
+    newUser.number = user.number;
+    newUser.postalCode = user.postalCode;
+    newUser.city = user.city;
+    newUser.phoneNumber = user.phoneNumber;
+
+    return axios.put(BaseUrl + "/user/" + user.userName, newUser);
+  }
+
+  static deleteUser(user) {
+    return axios.delete(BaseUrl + "/user/" + user.userName);
+  }
+
+  //   static deleteCategory(category) {
+  //     return axios.delete(BaseUrl + "/categories/" + category);
   //   }
 
   static getOrderByUserID(id) {
