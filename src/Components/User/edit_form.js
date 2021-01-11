@@ -34,6 +34,7 @@ class EditForm extends Component {
             id="userName"
             type="text"
             placeholder="userName"
+            disabled="disabled"
             value={this.state.userName}
             onChange={this.handleChange}
           />

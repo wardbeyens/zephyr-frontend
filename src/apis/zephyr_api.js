@@ -7,6 +7,18 @@ class MyApi {
     return axios.get(BaseUrl + "/clothes");
   }
 
+  static createClothes(clothes) {
+    return axios.post(BaseUrl + "/clothes", clothes);
+  }
+
+  static updateClothes(clothes) {
+    return axios.put(BaseUrl + "/clothes/" + clothes.uuid, clothes);
+  }
+
+  static deleteClothes(clothes) {
+    return axios.delete(BaseUrl + "/clothes/" + clothes.uuid);
+  }
+
   //   static getClothesByID(id) {
   //     return axios.get(BaseUrl + "/clothes/" + id);
   //   }

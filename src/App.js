@@ -30,6 +30,10 @@ const Header = () => (
         <Nav.Link href="/">Shop</Nav.Link>
         <Nav.Link href="/basket">Basket</Nav.Link>
         <Nav.Link href="/login">Login</Nav.Link>
+        <Nav.Link href="/admin/users">ADMIN - users</Nav.Link>
+        <Nav.Link href="/admin/clothes">ADMIN - clothes</Nav.Link>
+        <Nav.Link href="/admin/orders">ADMIN - orders</Nav.Link>
+
         {/* <Nav.Link href="/signup">Sign Up</Nav.Link> */}
       </Nav>
     </Navbar.Collapse>

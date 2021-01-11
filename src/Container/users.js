@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { Component } from "react";
 import myApi from "../apis/zephyr_api";
 import Index from "../Components/User/index";
@@ -13,6 +14,7 @@ class Users extends Component {
   load() {
     myApi.getAllUsers().then(
       (result) => {
+        console.table(result.data);
         this.setState({ users: result.data });
       },
       (error) => {
@@ -46,17 +48,15 @@ class Users extends Component {
   };
 
   onUpdate = (user) => {
-    myApi
-      .updateUser(user)
-      .then(
-        (result) => {
-          this.load();
-        },
-        (error) => {
-          throw error;
-        }
-      )
-      .this.load();
+    myApi.updateUser(user).then(
+      (result) => {
+        console.table(result.data);
+        this.load();
+      },
+      (error) => {
+        throw error;
+      }
+    );
   };
 
   onDelete = (user) => {
