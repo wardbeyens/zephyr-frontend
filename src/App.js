@@ -9,12 +9,12 @@ import {
   NavNavLink,
 } from "react-router-dom";
 
-import Shop from "./components/shop";
-import Basket from "./components/basket";
+import Shop from "./Container/shop";
+import Basket from "./Container/basket";
 
 import { Navbar, Nav } from "react-bootstrap";
-import Login from "./components/login";
-import SignUp from "./components/signup";
+import Login from "./Container/login";
+import SignUp from "./Container/signup";
 
 import store from "./store";
 
