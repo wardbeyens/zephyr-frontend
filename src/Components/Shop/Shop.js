@@ -2,10 +2,8 @@ import React from 'react';
 import {Button, Col, Container, Row} from "react-bootstrap";
 
 const Shop = (props) => {
-    console.log(props)
     return (
         <div>
-
             <Container>
                 <div>
                     <center>
@@ -13,7 +11,8 @@ const Shop = (props) => {
                     </center>
                 </div>
                 <Row>
-                    {props.items.clothes.map((clothing, i) => (
+                    {props.items.clothes.map((clothing, i) => {
+                        return(
                         <Col>
                             <div key={i} className="card">
                                 <div className="card-body">
@@ -27,10 +26,10 @@ const Shop = (props) => {
                                     <p className="card-text">{clothing.type}</p>
                                     <p className="card-text">{clothing.price}</p>
                                 </div>
-                                {<Button onClick={()=>props.add(clothing.uuid, 1)}>ADD</Button>}
+                                {<Button onClick={() => props.add(1, clothing, clothing.uuid)} >ADD</Button>}
                             </div>
                         </Col>
-                    ))}
+                        )} )}
                 </Row>
             </Container>
         </div>
